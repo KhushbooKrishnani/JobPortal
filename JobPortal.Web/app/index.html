@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="Job_Portal">
+<head>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="/Content/style.css" rel="stylesheet" />
+
+    <link href="/Content/Selectize/css/selectize.css" rel="stylesheet" />
+    <link href="/Content/Selectize/css/selectize.default.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title></title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+</head>
+<body class="b">
+    <div ng-include="'Header/header.html'"></div>
+    <div ng-view=""></div>
+    <!--<div ng-include="'Footer/footer.html'"></div>-->
+    <script src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/angular-route.min.js"></script>
+
+    <script src="/Scripts/angular-selectize2/dist/angular-selectize.js"></script>
+    <script src="/Content/Selectize/js/standalone/selectize.js"></script>
+
+
+    <script src="app.js"></script>
+    <script src="Home/homeController.js"></script>
+    <script src="Header/headerController.js"></script>
+    <script src="Header/userService.js"></script>
+    <script src="Header/skillsService.js"></script>
+    <script src="JobSearch/jobSearchController.js"></script>
+    <script src="JobSearch/jobSearchService.js"></script>
+</body>
+</html>

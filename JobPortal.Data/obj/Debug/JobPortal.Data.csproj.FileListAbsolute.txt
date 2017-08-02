@@ -1,0 +1,10 @@
+F:\JobPortal\JobPortal\JobPortal.Data\bin\Debug\JobPortal.Data.dll.config
+F:\JobPortal\JobPortal\JobPortal.Data\bin\Debug\JobPortal.Data.dll
+F:\JobPortal\JobPortal\JobPortal.Data\bin\Debug\JobPortal.Data.pdb
+F:\JobPortal\JobPortal\JobPortal.Data\bin\Debug\EntityFramework.dll
+F:\JobPortal\JobPortal\JobPortal.Data\bin\Debug\EntityFramework.SqlServer.dll
+F:\JobPortal\JobPortal\JobPortal.Data\bin\Debug\EntityFramework.xml
+F:\JobPortal\JobPortal\JobPortal.Data\bin\Debug\EntityFramework.SqlServer.xml
+F:\JobPortal\JobPortal\JobPortal.Data\obj\Debug\JobPortal.Data.dll
+F:\JobPortal\JobPortal\JobPortal.Data\obj\Debug\JobPortal.Data.pdb
+F:\JobPortal\JobPortal\JobPortal.Data\obj\Debug\JobPortal.Data.csprojResolveAssemblyReference.cache

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Company_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Company_Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HeadQuarters" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Required_Experience" Type="int" Nullable="false" />
+    <Property Name="Package" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Job_Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="LocId" Type="int" Nullable="false" />
+    <Property Name="CompId" Type="int" Nullable="false" />
+    <Property Name="SkillsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocId" />
+    </Key>
+    <Property Name="LocId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="SkillsId" />
+    </Key>
+    <Property Name="SkillsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Skill_Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Lname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Experience" Type="int" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title_Role" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SkillsId" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImgUrl" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <Association Name="fk_Company_Id">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Job" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="CompId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Loc_Name">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="Job" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocId" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="LocId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_skill_id">
+    <End Role="Skills" Type="Self.Skills" Multiplicity="1" />
+    <End Role="Job" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="SkillsId" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="SkillsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Skills">
+    <End Role="Skills" Type="Self.Skills" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="SkillsId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="SkillsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobDatabaseModelStoreContainer">
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_Company_Id" Association="Self.fk_Company_Id">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Loc_Name" Association="Self.fk_Loc_Name">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="fk_skill_id" Association="Self.fk_skill_id">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Skills" Association="Self.fk_Skills">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

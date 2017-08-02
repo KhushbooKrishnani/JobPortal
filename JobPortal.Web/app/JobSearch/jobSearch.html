@@ -1,0 +1,47 @@
+﻿<div class="container" style="height:1000px">
+    <div class="row">
+        <form class="form js">
+            <div class="form-group col-md-3">
+                <selectize id="company" name="company" placeholder="Select Company" options="companies" config="{maxItems:1}" data-ng-change="setFilter('Company')" data-ng-model="filterCompany">
+                </selectize>
+                <input type="hidden" name="company" data-ng-model="filterCompany" required />
+            </div>
+            <div class="form-group col-md-3">
+                <selectize id="location" name="location" placeholder="Select Location" options="locations" config="{maxItems:1}" data-ng-change="setFilter('Location')" data-ng-model="filterLocation">
+                </selectize>
+                <input type="hidden" name="location" data-ng-model="filterLocation" required />
+            </div>
+            <div class="form-group col-md-3">
+                <selectize id="skill" name="skill" placeholder="Select Skill" options="skills" config="{maxItems:1}" data-ng-change="setFilter('Skill')" data-ng-model="filterSkill">
+                </selectize>
+                <input type="hidden" name="skill" data-ng-model="filterSkill" required />
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-color" data-ng-click="filterJob()">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-color" data-ng-click="getJobs()">Reset
+                    
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>JobId</th>
+                <th>Position</th>
+            </tr>
+            <tbody data-ng-repeat="data in jobList">
+                <tr>
+                    <td>{{data.JobId}}</td>
+                    <td>{{data.Position}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

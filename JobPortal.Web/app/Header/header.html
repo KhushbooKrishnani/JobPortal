@@ -1,0 +1,336 @@
+﻿<div data-ng-controller="headerController">
+    
+        <div class="space ">
+            <nav class="navbar navbar-static-top navbar-border" role="navigation">
+
+                <div class="conatiner-fluid">
+                    <div class="col-md-2 col-md-offset-0 col-sm-offset-2 col-sm-4 col-xs-12">
+                        <div class="navbar-header">
+
+
+
+                            <a class="navbar-brand " style="margin:0; float: none; text-align:center" href="#"><img src="https://39sf152pf74z2negmt1gi8ik-wpengine.netdna-ssl.com/wp-content/uploads/2016/10/logo2.svg" alt="WorkScout" /></a>
+
+                            
+                            <button data-ng-if="userDetails.Id" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+                               <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-training-navbar-collapse-1" aria-expanded="false">-->
+                                    <span class="sr-only ">Toggle navigation</span>
+                                    <span class="icon-bar toggle-color"></span>
+                                    <span class="icon-bar toggle-color"></span>
+                                    <span class="icon-bar toggle-color"></span>
+                                </button>
+                            <!--<button type="button" data-ng-if="" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-training-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only ">Toggle navigation</span>
+                            <span class="icon-bar toggle-color"></span>
+                            <span class="icon-bar toggle-color"></span>
+                            <span class="icon-bar toggle-color"></span>
+                            </button>-->
+
+</div>
+                    </div>
+                    <div class="col-md-offset-1 col-md-6 col-xs-12">
+                        <div class="collapse navbar-collapse" id="bs-training-navbar-collapse-1" style="padding-top:15px;">
+                         
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                <ul class="nav navbar-nav hidden-xs padding-to-li">
+                                    <li><a href="#!/header">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li data-ng-if="userDetails.Id"><a href="#!/jobSearch">Job Search</a></li>
+                                    <li class="dropdown" data-ng-if="userDetails.Id">
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <strong>{{userDetails.Fname}}</strong>
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="navbar-login">
+                                                    <div class="row">
+                                                        <div class="col-lg-8">
+                                                            <p class="text-center"><img data-ng-src="{{userDetails.ImgUrl}}" style="height:50px; width:50px;" /> </p>
+                                                            <!--<p class="text-center"><img data-ng-src="{{userDetails.ImgUrl}}" style="height:50px; width:50px;" /> </p>-->
+
+                                                            <p class="text-left">
+                                                                <a href="" class="btn btn-primary btn-block btn-sm">Edit Profile</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <div class="navbar login navbar login session">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <p>
+                                                                <a href="#!/home" class="btn btn-danger btn-block">Logout</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                                <ul class="nav navbar-nav visible-xs container">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li data-ng-if="userDetails.Id"><a href="#">Job Search</a></li>
+                                </ul>
+
+                            </div>
+                            </div>
+                    </div>
+                    <div class="col-md-3 hidden-xs" style="padding-top:15px; ">
+                       
+
+                        <button type="button" class="btn btn-sm but" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#registerModal"><i class="fa fa-user"></i>Sign up</button>
+
+
+                        <button type="button" class="btn btn-sm but" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#loginModal"><i class="fa fa-lock"></i>Log in</button>
+                        
+
+
+
+
+                    </div>
+                </div>
+            </nav>
+            <div class="col-xs-12 visible-xs">
+                <div class="container-fluid">
+                    <div class="col-xs-6" style="padding-left:5px;">
+                        <button class="btn btn-xs but1"><i class="fa fa-user"></i>Sign up</button>
+                    </div>
+                    <div class="col-xs-6" style="padding-left:25px;">
+                        <button class="btn btn-xs but1"><i class="fa fa-lock"></i>Log in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="registerModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" keyboard="false">
+            <div class="modal-dialog" role="document">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:#26ae61">
+                        <!-- &times is hex code of cross sign -->
+                        <button type="button" class="close" data-dismiss="modal" style="background-color:white; padding:10px">&times;</button>
+                        <h4 class="modal-title" style="text-align:center; color:white">Register yourself!!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div style="margin-left:20px; padding:20px">
+
+                            <form class="form-horizontal" name="signupform" novalidate>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+
+                                            <label for="firstName" class="text-color">First Name <span class="required">*</span></label>
+                                            <div ng-class="{'has-error':signupform.fname.$invalid && signupform.fname.$dirty}">
+                                                <input type="text" class="form-control" id="firstName" name="fname" placeholder="First Name" data-ng-model="registerData.Fname" required>
+                                                <div>
+                                                    <span class="help-block" ng-if="signupform.fname.$error.required && signupform.fname.$dirty">Firstname is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-1 col-md-5">
+                                        <div class="form-group">
+                                            <label for="lastName" class="text-color">Last Name <span class="required">*</span></label>
+                                            <div ng-class="{'has-error':signupform.lname.$invalid && signupform.lname.$dirty}">
+                                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lname" data-ng-model="registerData.Lname" required>
+                                                <div>
+                                                    <span class="help-block" ng-if="signupform.lname.$error.required && signupform.lname.$dirty">Lastname is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="text-color">Email <span class="required">*</span></label>
+                                            <div ng-class="{'has-error':signupform.email.$invalid && signupform.email.$dirty}">
+                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" data-ng-model="registerData.Email" required>
+                                                <div>
+                                                    <span class="help-block" ng-if="signupform.email.$error.required && signupform.email.$dirty">Email is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-1 col-md-5">
+
+                                        <div class="form-group">
+                                            <label for="phone" class="text-color">Phone Number <span class="required">*</span></label>
+                                            <div ng-class="{'has-error':signupform.phoneno.$invalid && signupform.phoneno.$dirty}">
+                                                <input type="text" class="form-control" id="phone" placeholder="Phone Number" name="phoneno" data-ng-model="registerData.PhoneNumber" required>
+                                                <div>
+                                                    <span class="help-block" ng-if="signupform.phoneno.$error.required && signupform.phoneno.$dirty">Phone Number is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+
+                                        <div class="form-group">
+                                            <label class="text-color">Gender <span class="required">*</span></label><br>
+                                            <input type="radio" name="Gender" data-ng-value="'Female'" class="text-color" data-ng-model="registerData.Gender">Female
+                                            <input type="radio" name="Gender" data-ng-value="'Male'" class="text-color" data-ng-model="registerData.Gender">Male
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-1 col-md-5">
+
+                                        <div class="form-group">
+                                            <label for="workex" class="text-color">Experience <span class="required">*</span></label>
+                                            <div ng-class="{'has-error':signupform.exp.$invalid && signupform.exp.$dirty}">
+                                                <input type="number" class="form-control" id="workex" placeholder="Experience" name="exp" data-ng-model="registerData.Experience" required>
+                                                <div>
+                                                    <span class="help-block" ng-if="signupform.exp.$error.required && signupform.exp.$dirty">Phone Number is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+
+                                        <div class="form-group">
+                                            <label for="city" class="text-color">City <span class="required">*</span></label>
+                                            <div ng-class="{'has-error':signupform.City.$invalid && signupform.City.$dirty}">
+                                                <input type="text" class="form-control" id="city" placeholder="City" name="City" data-ng-model="registerData.City" required>
+                                                <div>
+                                                    <span class="help-block" ng-if="signupform.City.$error.required && signupform.City.$dirty">Phone Number is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-offset-1 col-md-5">
+
+                                        <div class="form-group">
+                                            <label for="input1" class="text-color">Skills <span class="required">*</span></label>
+                                            <div ng-class="{'has-error':signupform.skillss.$invalid && signupform.skillss.$dirty}">
+
+                                                <selectize id="skillss" name="skillss" placeholder="Select Skills" options="skills" config="{maxItems:2}" data-ng-model="registerData.SkillsId">
+                                                    <!--<option class="help-block" ng-if="signupform.skillss.$error.required && signupform.skillss.$dirty">Skills is required</option>-->
+                                                </selectize>
+                                                <input type="hidden" name="skillss" data-ng-model="registerData.SkillsId" required />
+                                                <!--<select class="form-control" id="inputSkills" placeholder="Select Skills" name="skillss" data-ng-model="registerData.SkillsId" required>
+                                                    <option data-ng-repeat="skill in skills" data-ng-value="skill.value" style="color:black">
+                                                        {{skill.text}}
+                                                    </option>
+
+                                                    <option class="help-block" ng-if="signupform.skillss.$error.required && signupform.skillss.$dirty">Skills is required</option>
+
+                                                    
+
+
+                                                </select>-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                        
+                        <div class="row">
+
+                            <div class="col-md-5">
+
+                                <div class="form-group">
+                                    <label for="inputPassword" class="text-color">Password <span class="required">*</span></label>
+                                    <div ng-class="{'has-error':signupform.pass.$invalid && signupform.pass.$dirty}">
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="pass" data-ng-model="registerData.Password" required>
+                                        <div>
+                                            <span class="help-block" ng-if="signupform.pass.$error.required && signupform.pass.$dirty">Password is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" ng-disabled="signupform.$pristine || signupform.$dirty && signupform.$invalid" class="btn btn-md" value="Sign Up" style="background-color:#26ae61; color:white;"  data-ng-click="register()">
+                        <a href="" class="btn btn-info" data-ng-click="showLoginPanel()">Log in</a>                    
+                    </div>
+                        </div>
+
+                </div>
+            </div>
+
+    <div id="loginModal" class="modal fade" role="dialog" data-backdrop="static" keyboard="false">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#26ae61">
+
+                    <button type="button" class="close" data-dismiss="modal" style="background-color:white; padding:10px">&times;</button>
+                    <h3 class="modal-title " style="text-align:center; color:white">Log in here!!</h3>
+                </div>
+                <div class="modal-body">
+                    <div style="margin-left:20px; padding:20px">
+
+
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="inputEmail" class="text-color"><span class="glyphicon glyphicon-user"></span>Email <span class="required">*</span></label>
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-ng-model="loginData.Email">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="inputPassword" class="text-color"><span class="glyphicon glyphicon-lock"></span>Password <span class="required">*</span></label>
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" data-ng-model="loginData.Password">
+                                    </div>
+                                </form>
+                                <div class="alert alert-warning" data-ng-show="loginFail==true">
+                                    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Warning!</strong>This indicates warning
+                                </div>
+                                <div class="checkbox">
+                                    <div style="margin-left:20px; padding:20px">
+                                        <label class="text-color" style="float:left"><input type="checkbox">Remember Me</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br class="col-sm-visible col-md-hidden">
+                </div>
+
+                <div class="modal-footer">
+                    <div>
+                        <a href="" class="btn btn-info" style="float:left" data-ng-click="showRegisterPanel()">New Registration</a>
+                        <button type="button" class="btn btn-success" style="float:right" data-ng-click="login()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+        
+
+    
